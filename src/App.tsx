@@ -14,6 +14,7 @@ import WBSViewer from './components/WBSViewer';
 import CostCalculator from './components/CostCalculator';
 import EngineeringMatrices from './components/EngineeringMatrices';
 import GanttChart from './components/GanttChart';
+import CityFacadeViewer from './components/CityFacadeViewer';
 
 // Interactive Cyberpunk Coastal Logo
 const CyberLogo = ({ className = "w-16 h-16" }: { className?: string }) => (
@@ -76,6 +77,7 @@ export default function App() {
   // Tab definitions with custom styling keys
   const tabsList = [
     { id: 'manual', label: 'Spesifikasi FEED (Volume A-S)', icon: BookOpen },
+    { id: 'facade', label: 'Panorama & Gaya Hidup', icon: Eye },
     { id: 'twin', label: 'Digital Twin Simulator', icon: Cpu },
     { id: 'risk', label: 'Matriks Risiko (150 Items)', icon: ShieldCheck },
     { id: 'wbs', label: 'Work Packages (WBS)', icon: Layers },
@@ -390,7 +392,7 @@ export default function App() {
               DENYUT NADI FLORES (TAB CYCLE MONITOR)
             </span>
             <span className="text-[9px] bg-[#ff007f]/10 text-cyber-pink border border-[#ff007f]/30 px-1.5 py-0.5 rounded font-mono animate-pulse">
-              ACTIVE PULSE INDEX: {pulseIndex + 1}/7
+              ACTIVE PULSE INDEX: {pulseIndex + 1}/{tabsList.length}
             </span>
           </div>
           
@@ -484,6 +486,7 @@ export default function App() {
             >
               <div className="p-1 sm:p-4 rounded-lg overflow-hidden bg-cyber-void/50">
                 {activeTab === 'manual' && <VolumeViewer />}
+                {activeTab === 'facade' && <CityFacadeViewer />}
                 {activeTab === 'twin' && <DigitalTwinSimulator />}
                 {activeTab === 'risk' && <RiskMatrix />}
                 {activeTab === 'wbs' && <WBSViewer />}
