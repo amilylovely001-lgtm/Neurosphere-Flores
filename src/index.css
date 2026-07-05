@@ -5,4 +5,127 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --font-display: "Space Grotesk", sans-serif;
+  
+  --color-cyber-dark: #05020c;
+  --color-cyber-void: #090416;
+  --color-cyber-purple: #12072b;
+  --color-cyber-pink: #ff007f;
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-green: #39ff14;
+  --color-cyber-yellow: #fff500;
+  
+  --animate-cyber-pulse: cyber-pulse 2s infinite alternate;
+  --animate-neon-glow-cyan: neon-glow-cyan 3s infinite alternate;
+  --animate-neon-glow-pink: neon-glow-pink 3s infinite alternate;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-grid-move: grid-move 20s linear infinite;
+  --animate-coast-pulse: coast-pulse 4s ease-in-out infinite;
+
+  @keyframes cyber-pulse {
+    0% {
+      box-shadow: 0 0 4px rgba(255, 0, 127, 0.4), inset 0 0 2px rgba(255, 0, 127, 0.2);
+      border-color: rgba(255, 0, 127, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 12px rgba(255, 0, 127, 0.8), inset 0 0 6px rgba(255, 0, 127, 0.4);
+      border-color: rgba(255, 0, 127, 1);
+    }
+  }
+  @keyframes neon-glow-cyan {
+    0% {
+      text-shadow: 0 0 2px rgba(0, 240, 255, 0.3), 0 0 5px rgba(0, 240, 255, 0.3);
+    }
+    100% {
+      text-shadow: 0 0 4px rgba(0, 240, 255, 0.8), 0 0 10px rgba(0, 240, 255, 0.5), 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+  }
+  @keyframes neon-glow-pink {
+    0% {
+      text-shadow: 0 0 2px rgba(255, 0, 127, 0.3), 0 0 5px rgba(255, 0, 127, 0.3);
+    }
+    100% {
+      text-shadow: 0 0 4px rgba(255, 0, 127, 0.8), 0 0 10px rgba(255, 0, 127, 0.5), 0 0 15px rgba(255, 0, 127, 0.3);
+    }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+  }
+  @keyframes coast-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 2px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 5px rgba(255, 0, 127, 0.2));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05020c;
+  border-left: 1px solid #1a0f30;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f0d45;
+  border: 1px solid #ff007f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff007f;
+  box-shadow: 0 0 8px #ff007f;
+}
+
+/* Cyberpunk decorative elements */
+.cyber-grid {
+  background-image: linear-gradient(rgba(26, 15, 48, 0.5) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(26, 15, 48, 0.5) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.cyber-scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 240, 255, 0.03) 10%,
+    rgba(255, 255, 255, 0) 20%
+  );
+  background-size: 100% 20px;
+}
+
+/* Custom neon utility classes that don't depend on direct theme config parsing */
+.glow-cyan {
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  border-color: rgba(0, 240, 255, 0.7);
+}
+.glow-pink {
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
+  border-color: rgba(255, 0, 127, 0.7);
+}
+.glow-green {
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+  border-color: rgba(57, 255, 20, 0.7);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.6);
+}
+.neon-text-pink {
+  text-shadow: 0 0 5px rgba(255, 0, 127, 0.6);
+}
+
+/* Cyberpunk card cut effect */
+.cyber-clip {
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+.cyber-clip-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
