@@ -1,0 +1,6 @@
+{
+  "name": "Neurosphere Flores FEED Portal",
+  "description": "An interactive Front-End Engineering Design (FEED) and Digital Twin portal for Neurosphere Flores, a regenerative bamboo-composite smart settlement.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
